@@ -1,0 +1,23 @@
+PYTHON_VERSION = 3.11.7
+PYTHON_DIR = $(CURDIR)/.python
+VENV_DIR = $(CURDIR)/venv
+
+python-env:
+	@echo "🔽 Downloading and building Python $(PYTHON_VERSION)..."
+	mkdir -p $(PYTHON_DIR)/src
+	cd $(PYTHON_DIR)/src && \
+	curl -O https://www.python.org/ftp/python/$(PYTHON_VERSION)/Python-$(PYTHON_VERSION).tgz && \
+	tar -xf Python-$(PYTHON_VERSION).tgz && \
+	cd Python-$(PYTHON_VERSION) && \
+	./configure --prefix=$(PYTHON_DIR) --enable-optimizations --with-ensurepip=install && \
+	make -j$$(nproc) && \
+	make install
+
+	@echo "📦 Creating virtual environment..."
+	$(PYTHON_DIR)/bin/python3 -m venv $(VENV_DIR)
+
+	@echo "✅ Done. Activate with:"
+	@echo "   source venv/bin/activate"
+
+clean:
+	rm -rf .python venv
