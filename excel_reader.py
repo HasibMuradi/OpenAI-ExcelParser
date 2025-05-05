@@ -1,16 +1,18 @@
 import pandas as pd
 
+
 def read_excel_file(filepath: str) -> pd.DataFrame:
+
     try:
         df = pd.read_excel(filepath)
 
         if not df.empty:
-            print(f"Datei erfolgreich eingelesen!")
+            print("Successfully read excel file.\n")
             return df
         else:
-            print("Die Excel-Datei ist leer!")
+            print("The excel file is empty.\n")
 
         return df
     except Exception as e:
-        print(f"Fehler beim Einlesen der Datei: {e}")
+        print(f"Error while reading excel file: {e}")
         raise e
