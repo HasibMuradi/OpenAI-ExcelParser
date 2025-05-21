@@ -1,53 +1,108 @@
 import os
 import pandas as pd
+import json
 from openai import OpenAI
 from dotenv import load_dotenv
 
+def parse_with_openai(df: pd.DataFrame) -> dict:
+    """
+    This function takes a pandas DataFrame, converts its first 20 rows to CSV format,
+    and sends it to the OpenAI API (GPT-4-turbo) to extract structured time series data
+    and metadata based on a predefined schema.
 
-def parse_with_openai(df: pd.DataFrame) -> str:
+    Parameters:
+        df (pd.DataFrame): The input data containing time series information.
 
-    subset = df.head(12)
-    excel_to_csv = subset.to_csv(index=False)
-    print("Excel data to parse:")
-    print(excel_to_csv)
+    Returns:
+        dict: A dictionary containing parsed metadata and time series values.
+              Format:
+              {
+                "metadata": {
+                    "unit": str,
+                    "source": str,
+                    "interval": str
+                },
+                "timeseries": [
+                    {"timestamp": str, "value": float},
+                    ...
+                ]
+              }
+    """
 
+    # Convert the first 20 rows of the DataFrame to CSV format (no index column)
+    excel_to_csv = df.head(20).to_csv(index=False)
+
+    # Load environment variables (e.g., your OpenAI API key)
     load_dotenv()
     api_key = os.getenv("OPENAI_API_KEY")
     if not api_key:
         raise ValueError("API key not found!")
 
-    client = OpenAI(
-        api_key=api_key
-    )
+    # Create an OpenAI client instance using your API key
+    client = OpenAI(api_key=api_key)
 
+    # Define the structure of the expected output using OpenAI tools (functions)
+    tools = [
+        {
+            "type": "function",
+            "function": {
+                "name": "extract_timeseries",
+                "description": "Extract structured time series data and metadata from CSV data.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "metadata": {
+                            "type": "object",
+                            "properties": {
+                                "unit": {"type": "string"},
+                                "source": {"type": "string"},
+                                "interval": {"type": "string"}
+                            },
+                            "required": ["unit", "source", "interval"]
+                        },
+                        "timeseries": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "timestamp": {"type": "string"},
+                                    "value": {"type": "number"}
+                                },
+                                "required": ["timestamp", "value"]
+                            }
+                        }
+                    },
+                    "required": ["metadata", "timeseries"]
+                }
+            }
+        }
+    ]
+
+    # Define the system message (instruction for the assistant)
     system_prompt = (
-        "Du bist ein präziser Parser für Zeitreihendaten aus CSV-Dateien.\n"
-        "Deine Aufgabe ist es, Zeitstempel und zugehörige Werte aus Tabellen zu extrahieren.\n\n"
-        "Gib ausschließlich eine Liste im CSV-Format zurück, z.B.:\n"
-        "2025-03-01 00:00:00, 2323894.6\n"
-        "2024-01-01 00:00:00,00:15:00, 0\n"
-        "oder andere Zeitformaten\n\n"
-        "Regeln:\n"
-        "- Erkenne Zeitinformationen, egal ob sie als Einzelspalte ('Zeit von') oder als Kombination von 'Zeit von' und 'Zeit bis' erscheinen.\n"
-        "- Werte müssen Fließkommazahlen sein (z.B. 1234.56).\n"
-        "- Gib nur gültige Zeit-Wert-Paare zurück.\n"
-        "- Keine Kommentare, keine Erklärungen, keine Überschriften.\n"
-        "- Keine Indizes, keine Zeilennummern.\n"
-        "- Ignoriere leere, fehlerhafte oder unvollständige Zeilen.\n"
-        "- Entferne alle Spalten wie 'Unnamed', leere Spalten oder irrelevante Metadaten.\n"
+        "You are a parser for time series data. "
+        "Analyze the following CSV content and extract time-value pairs along with relevant metadata."
     )
 
-    completion = client.chat.completions.create(
-        model="gpt-4-turbo",
+    # Send a chat request to the OpenAI API with the CSV data and the tool definition
+    response = client.chat.completions.create(
+        model="gpt-4-turbo",  # You can change the model here if needed
         messages=[
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": excel_to_csv}
-        ]
+        ],
+        tools=tools,
+        tool_choice="auto"  # Automatically lets GPT choose which tool/function to invoke
     )
-    content = completion.choices[0].message.content
-    print("Successfully parsed excel data:")
-    print(content + "\n")
 
-    return content
+    # Get the tool call response (i.e., function call generated by GPT)
+    tool_call = response.choices[0].message.tool_calls[0]
 
+    try:
+        # Extract and parse the structured output (function arguments) as a dictionary
+        parsed_data = json.loads(tool_call.function.arguments)
+        return parsed_data
 
+    except json.JSONDecodeError as e:
+        # Handle the case where the JSON could not be parsed
+        raise ValueError("❌ Error while extracting JSON data from the OpenAI response") from e

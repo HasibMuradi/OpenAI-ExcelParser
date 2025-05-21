@@ -1,28 +1,34 @@
-# Entwicklung eines flexiblen Datenkonverters
+## Flexible Time Series Data Converter using OpenAI
+### Project Overview
+This project implements a flexible data parser that converts time series data from various Excel formats into a unified Python data structure using the OpenAI API. It is designed to handle inconsistent input formats (fuzzy inputs) and standardize them using the power of large language models.
 
-Entwickle ein Python-Programm, das Excel-Dateien mit Zeitreihen und Metadaten mit Hilfe der OpenAI API in ein einheitliches Zielformat konvertiert.
+The parser is robust against formatting differences between files and produces clean, validated structured outputs with metadata and time series content.
 
-Du erhältst vier Excel-Dateien, die jeweils eine Zeitreihe mit Metadaten enthalten. Jede Datei hat ein leicht abweichendes Format.
+### Problem Statement
+You are given four Excel files. Each contains time series data with associated metadata, but all have slight structural differences.
+Your task is to:
+- Define a unified target data format in Python.
+- Build a Python program that can:
+- Read and preprocess the Excel files.
+- Send the data to the OpenAI API for parsing.
+- Validate and store the structured data in a predefined schema.
+- Output the extracted time series and metadata.
 
-## Aufgabe
+### Features
+- Supports fuzzy input structures using OpenAI’s structured output capabilities.
+- Converts Excel time series data to a standard JSON format.
+- Validates output against a strict Python schema using Pydantic.
+- Handles datetime formats and Unicode content correctly.
+- CLI-ready and extensible for more input formats.
 
-- Definiere ein einheitliches Zielformat als Python-Datenstruktur, das sowohl die Zeitreihe als auch deren Metadaten aufnehmen kann.
+### Technologies Used
+- Python 3.11+
+- Pandas
+- OpenAI Python SDK
+- Pydantic v2
+- dotenv for environment config
 
-- Entwickle ein Python-Programm, das folgende Funktionen erfüllt:
-  - Einlesen einer Excel-Datei
-  - Senden der Daten der eingelesenen Datei an die OpenAI API
-  - Speichern der von OpenAI “geparsten” Daten in das definierte Zielformat
-  - Ausgabe der Zeitreihe und deren Metadaten
-
-Im Wesentlichen handelt es sich also um einen Parser, der mit unscharfen (fuzzy) Eingaben umgehen kann.
-
-- Stelle dein Projekt als Git-Repository auf Github, Gitlab oder einem ähnlichen Dienst nicht-öffentlich für uns bereit und gibt uns Zugang zu dem Repository
-
-## Hinweise
-
-Nutze das Konzept von [Structured output from LLMs](https://www.thoughtworks.com/radar/techniques/structured-output-from-llms). Weitere Informationen findest du z.B. unter:
-
+### References
+- [Structured output from LLMs](https://www.thoughtworks.com/radar/techniques/structured-output-from-llms)
 - [Structured Outputs - OpenAI Platform](https://platform.openai.com/docs/guides/structured-outputs?api-mode=responses)
 - [Structured data extraction from unstructured content using LLM schemas](https://simonwillison.net/2025/Feb/28/llm-schemas/#structured-data-extraction-is-a-killer-app-for-llms)
-
-Falls du während der Umsetzung auf Hindernisse stößt, ist dies kein Problem. Reiche den Stand ein, bis zu dem du gekommen bist und beschreibe die aufgetretenen Hindernisse.
