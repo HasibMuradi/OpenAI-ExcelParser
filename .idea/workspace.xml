@@ -4,22 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08e721c1-5c0d-47d2-af64-f7307c2a61e5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/save_as_defined_format.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV_Data/Zeitreihe4.csv" beforeDir="false" afterPath="$PROJECT_DIR$/JSON_Data/Zeitreihe4.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Excel_Data/Zeitreihe0.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Excel_Data/Zeitreihe1.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Excel_Data/Zeitreihe1.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Excel_Data/Zeitreihe2.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Excel_Data/Zeitreihe2.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Excel_Data/Zeitreihe3.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Excel_Data/Zeitreihe4.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/csv_writer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/display.py" beforeDir="false" afterPath="$PROJECT_DIR$/display.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/excel_reader.py" beforeDir="false" afterPath="$PROJECT_DIR$/excel_reader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/parser.py" afterDir="false" />
-    </list>
+    <list default="true" id="08e721c1-5c0d-47d2-af64-f7307c2a61e5" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,7 +33,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "last_opened_file_path": "C:/Users/hasib/PycharmProjects/OpenAI-ExcelParser",
-    "settings.editor.selected.configurable": "vcs.Git"
+    "settings.editor.selected.configurable": "project.propVCSSupport.Mappings"
   }
 }]]></component>
   <component name="SharedIndexes">
