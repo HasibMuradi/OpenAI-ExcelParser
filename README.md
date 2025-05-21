@@ -23,6 +23,7 @@ Your task is to:
 
 ### Technologies Used
 - Python 3.11+
+- pytest 8.3.5
 - Pandas
 - OpenAI Python SDK
 - Pydantic v2

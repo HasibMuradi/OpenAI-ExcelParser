@@ -21,7 +21,7 @@ from save_as_defined_format import save         # Module to validate and save pa
 from display import display_json                # Module to display the saved JSON data in a readable way
 
 # Define the path to the Excel file containing raw time series data
-file_path = "Excel_Data/Zeitreihe2.xlsx"
+file_path = "excel_data/Zeitreihe2.xlsx"
 
 # Step 1: Read the Excel file into a pandas DataFrame
 raw_table = read_excel_file(file_path)
@@ -30,7 +30,7 @@ raw_table = read_excel_file(file_path)
 parsed = parse_with_openai(raw_table)
 
 # Step 3: Save the parsed data as a JSON file in the specified folder with a given filename
-save(parsed, "JSON_Data", "Zeitreihe2.json")
+save(parsed, "json_data", "Zeitreihe2.json")
 
 # Step 4: Display the saved JSON file content (time series data + metadata) for verification or review
-display_json("JSON_Data", "Zeitreihe2.json")
+display_json("json_data", "Zeitreihe2.json")

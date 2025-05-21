@@ -4,11 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08e721c1-5c0d-47d2-af64-f7307c2a61e5" name="Changes" comment="" />
+    <list default="true" id="08e721c1-5c0d-47d2-af64-f7307c2a61e5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Excel_Data/Zeitreihe1.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/excel_data/Zeitreihe1.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Excel_Data/Zeitreihe2.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/excel_data/Zeitreihe2.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JSON_Data/Zeitreihe1.json" beforeDir="false" afterPath="$PROJECT_DIR$/json_data/Zeitreihe1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JSON_Data/Zeitreihe2.json" beforeDir="false" afterPath="$PROJECT_DIR$/json_data/Zeitreihe2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/display.py" beforeDir="false" afterPath="$PROJECT_DIR$/display.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/excel_reader.py" beforeDir="false" afterPath="$PROJECT_DIR$/excel_reader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/parser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/save_as_defined_format.py" beforeDir="false" afterPath="$PROJECT_DIR$/save_as_defined_format.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -20,6 +38,9 @@
   &quot;associatedIndex&quot;: 0
 }</component>
   <component name="ProjectId" id="2wfx4S38VMaG8edNLPEzoJ4xY7u" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -33,7 +54,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "last_opened_file_path": "C:/Users/hasib/PycharmProjects/OpenAI-ExcelParser",
-    "settings.editor.selected.configurable": "project.propVCSSupport.Mappings"
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
   <component name="SharedIndexes">

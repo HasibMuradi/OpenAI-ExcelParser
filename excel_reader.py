@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 def read_excel_file(filepath: str) -> pd.DataFrame:
     """
     Reads an Excel file into a Pandas DataFrame.

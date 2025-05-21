@@ -4,6 +4,7 @@ import json
 from openai import OpenAI
 from dotenv import load_dotenv
 
+
 def parse_with_openai(df: pd.DataFrame) -> dict:
     """
     This function takes a pandas DataFrame, converts its first 20 rows to CSV format,

@@ -1,9 +1,10 @@
 import json
 import os
 
+
 def display_json(folder: str, name: str) -> None:
-    """
-    Reads and displays structured JSON files in a human-readable format.
+
+    """Reads and displays structured JSON files in a human-readable format.
 
     Args:
         folder (str): Path to the folder containing the file.

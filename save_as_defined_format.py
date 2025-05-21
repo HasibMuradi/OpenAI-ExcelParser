@@ -4,6 +4,7 @@ from pydantic import BaseModel, ValidationError, Field
 from typing import List
 from datetime import datetime
 
+
 # --- Target data structure using Pydantic models ---
 
 # This class defines the metadata for the time series data
@@ -12,10 +13,12 @@ class Metadata(BaseModel):
     source: str = Field(..., description="Source, e.g., device name")
     interval: str = Field(..., description="Measurement interval, e.g., 15min")
 
+
 # This class represents a single data point in the time series
 class TimePoint(BaseModel):
     timestamp: datetime  # The timestamp of the measurement
     value: float          # The measured value
+
 
 # This class represents the complete parsed data structure
 class ParsedData(BaseModel):
